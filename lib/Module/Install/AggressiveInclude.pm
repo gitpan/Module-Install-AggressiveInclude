@@ -16,7 +16,7 @@ Version 0.01
 
 =cut
 
-our $VERSION = '0.01_pre03';
+our $VERSION = '0.01_pre04';
 
 
 =head1 SYNOPSIS
@@ -87,10 +87,17 @@ sub include_aggressive {
     my $self = shift;
     my $package = shift;
     
-    return (
+    my @r = (
         $self->include($package),
         $self->include_findallmod($package)
     );
+    
+    return @r;
+}
+
+sub _include_mf_method {
+    my ($self, $method) = (shift, shift);
+    return map { Module::Find->can($method)->($_) } @_;
 }
 
 =head2 include_findallmod
@@ -101,10 +108,9 @@ Ties L<Module::Find>::findallmod to L<Module::Install>::include.
 
 sub include_findallmod {
     my $self = shift;
-    
     return map {
-        $self->include($_)
-    } Module::Find::findallmod(@_);
+        $self->include($_);
+    } $self->_include_mf_method( 'findallmod', @_ );
 }
 
 =head2 include_findsubmod
@@ -118,7 +124,7 @@ sub include_findsubmod {
     
     return map {
         $self->include($_)
-    } Module::Find::findsubmod(@_);
+    } $self->_include_mf_method( 'findsubmod', @_);
 }
 
 =head2 include_followsymlinks

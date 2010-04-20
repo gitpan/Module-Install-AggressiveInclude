@@ -8,3 +8,5 @@ Revision history for Module-Install-AggressiveInclude
            Update README file and MANIFEST for meta
 0.01_pre03 Apr 19th 2010
            Fixing META.yml issues for dist
+0.01_pre04 Apr 19th 2010
+           Fixed bug in incorrect usage of Module::Find
