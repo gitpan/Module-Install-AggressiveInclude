@@ -6,3 +6,5 @@ Revision history for Module-Install-AggressiveInclude
            Change version scheme to compat with gentoo
 0.01_pre02 Apr 19th 2010
            Update README file and MANIFEST for meta
+0.01_pre03 Apr 19th 2010
+           Fixing META.yml issues for dist
