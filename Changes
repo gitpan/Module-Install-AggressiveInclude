@@ -4,3 +4,5 @@ Revision history for Module-Install-AggressiveInclude
            Dev release updated to cpan.
 0.01_pre01 Apr 19th 2010
            Change version scheme to compat with gentoo
+0.01_pre02 Apr 19th 2010
+           Update README file and MANIFEST for meta
